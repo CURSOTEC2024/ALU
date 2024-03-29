@@ -4,7 +4,6 @@ module ALU (
     input [2:0] SEL, //SELECTOR DE OPERACION
 	
     output [3:0] ALU_OUT,
-    output reg [3:0] RESULTADO_BINARIO,
 	
     output reg CARRY_OUT,
     output reg OVERFLOW,
@@ -23,14 +22,14 @@ always @*
 			OVERFLOW = (A[3]==B[3])&(A[3]!=RESULTADO[3]);
   		    ZERO = (RESULTADO==4'b0000);
 			SIGNO = RESULTADO[3]==1;	
-			RESULTADO_BINARIO=4'b0000;
+			
 		end	
         3'b001: begin // Resta
  			{CARRY_OUT,RESULTADO} = A - B;	
 			OVERFLOW = (A[3] & ~B[3] & ~RESULTADO[3]) | (~A[3] & B[3] & RESULTADO[3]);
   		    ZERO = (RESULTADO==4'b0000);
 			SIGNO = RESULTADO[3]==1; 
-			RESULTADO_BINARIO=4'b0000;
+			
 			
         end
         3'b010: begin // AND
@@ -39,7 +38,7 @@ always @*
 			OVERFLOW = 0;
   		    ZERO = (RESULTADO==4'b0000);
 			SIGNO = RESULTADO[3]==1;
-			RESULTADO_BINARIO=RESULTADO;
+			
         end
         3'b011: begin // OR
     	    RESULTADO = A | B;
@@ -47,7 +46,7 @@ always @*
 			OVERFLOW = 0;
   		    ZERO = (RESULTADO==4'b0000);
 			SIGNO = RESULTADO[3]==1; 
-			RESULTADO_BINARIO=RESULTADO;
+			
         end
         3'b100: begin // XOR
     	    RESULTADO = A ^ B;
@@ -55,7 +54,7 @@ always @*
 			OVERFLOW = 0;
   		    ZERO = (RESULTADO==4'b0000);
 			SIGNO = RESULTADO[3]==1; 
-			RESULTADO_BINARIO=RESULTADO;
+			
         end			   
 		3'b101: begin // NAND
     	    RESULTADO = ~(A & B);
@@ -63,7 +62,7 @@ always @*
 			OVERFLOW = 0;
   		    ZERO = (RESULTADO==4'b0000);
 			SIGNO = RESULTADO[3]==1;   
-			RESULTADO_BINARIO=RESULTADO;
+			
         end
 		3'b110: begin // XNOR
      	    RESULTADO = ~(A ^ B);
@@ -71,7 +70,7 @@ always @*
 			OVERFLOW = 0;
   		    ZERO = (RESULTADO==4'b0000);
 			SIGNO = RESULTADO[3]==1;    
-			RESULTADO_BINARIO=RESULTADO;
+			
         end
 		3'b111: begin // NOR
     	    RESULTADO = ~(A | B);
@@ -79,7 +78,7 @@ always @*
 			OVERFLOW = 0;
   		    ZERO = (RESULTADO==4'b0000);
 			SIGNO = RESULTADO[3]==1; 
-			RESULTADO_BINARIO=RESULTADO;
+			
         end		 
 		
         default: begin
