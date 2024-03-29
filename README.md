@@ -1,41 +1,33 @@
-![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/test/badge.svg)
+Una Arithmetic Logic Unit (ALU) es un componente clave dentro de un procesador, que ejecuta operaciones aritméticas 
+y lógicas en datos binarios. Cuando se ve desde la perspectiva de un circuito, la ALU está compuesta por una serie de 
+unidades funcionales interconectadas que realizan diferentes operaciones, y también incluye lógica adicional para generar
+banderas que indican ciertas condiciones o estados de las operaciones realizadas.
+ 
+ Estas banderas típicamente incluyen:
+ 
+ Carry (acarreo): Indica si ha ocurrido un acarreo (carry) al bit más significativo durante una operación aritmética.
+ Overflow (sobreflujo): Indica si el resultado de una operación aritmética excede el rango de representación disponible.
+ Zero (cero): Indica si el resultado de una operación es cero.
+ Sign (signo): Indica si el resultado de una operación es positivo o negativo, basado en el bit más significativo del resultado.
 
-# Tiny Tapeout Verilog Project Template
+ El símbolo de una Arithmetic Logic Unit (ALU) de 4 bits, incluyendo sus banderas se muestra en la Figura
 
-- [Read the documentation for project](docs/info.md)
+ <img width="404" alt="Captura de pantalla 2024-03-29 015941" src="https://github.com/diazAngelFR/ALU/assets/165363474/757e3fce-9af1-4358-a344-09ed8254e4f3">
 
-## What is Tiny Tapeout?
+Donde:
 
-TinyTapeout is an educational project that aims to make it easier and cheaper than ever to get your digital designs manufactured on a real chip.
+A[3:0] y B[3:0] son los operandos de entrada de 4 bits.
 
-To learn more and get started, visit https://tinytapeout.com.
+ALU OUT [3:0] es el resultado de la operación aritmética de la ALU de 4 bits.
 
-## Verilog Projects
+CARRY OUT es la salida de la bandera de carry.
 
-1. Add your Verilog files to the `src` folder.
-2. Edit the [info.yaml](info.yaml) and update information about your project, paying special attention to the `source_files` and `top_module` properties. If you are upgrading an existing Tiny Tapeout project, check out our [online info.yaml migration tool](https://tinytapeout.github.io/tt-yaml-upgrade-tool/).
-3. Edit [docs/info.md](docs/info.md) and add a description of your project.
-4. Optionally, add a testbench to the `test` folder. See [test/README.md](test/README.md) for more information.
+OVERFLOW es la salida de la bandera de sobreflujo.
 
-The GitHub action will automatically build the ASIC files using [OpenLane](https://www.zerotoasiccourse.com/terminology/openlane/).
+ZERO es la salida de la bandera de cero.
 
-## Enable GitHub actions to build the results page
+SIGNO es la salida de la bandera de signo.
 
-- [Enabling GitHub Pages](https://tinytapeout.com/faq/#my-github-action-is-failing-on-the-pages-part)
+En la Figure 2 se tiene la tabla de verdad para la ALU donde se muestran las operaciones que puede realizar dependiendo del selector ”SEL”.
 
-## Resources
-
-- [FAQ](https://tinytapeout.com/faq/)
-- [Digital design lessons](https://tinytapeout.com/digital_design/)
-- [Learn how semiconductors work](https://tinytapeout.com/siliwiz/)
-- [Join the community](https://tinytapeout.com/discord)
-- [Build your design locally](https://docs.google.com/document/d/1aUUZ1jthRpg4QURIIyzlOaPWlmQzr-jBn3wZipVUPt4)
-
-## What next?
-
-- [Submit your design to the next shuttle](https://app.tinytapeout.com/).
-- Edit [this README](README.md) and explain your design, how it works, and how to test it.
-- Share your project on your social network of choice:
-  - LinkedIn [#tinytapeout](https://www.linkedin.com/search/results/content/?keywords=%23tinytapeout) [@TinyTapeout](https://www.linkedin.com/company/100708654/)
-  - Mastodon [#tinytapeout](https://chaos.social/tags/tinytapeout) [@matthewvenn](https://chaos.social/@matthewvenn)
-  - X (formerly Twitter) [#tinytapeout](https://twitter.com/hashtag/tinytapeout) [@matthewvenn](https://twitter.com/matthewvenn)
+<img width="312" alt="Captura de pantalla 2024-03-29 020134" src="https://github.com/diazAngelFR/ALU/assets/165363474/e7117fe9-216d-4155-b06f-8bb69c9dd9a6">
