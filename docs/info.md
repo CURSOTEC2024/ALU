@@ -13,7 +13,7 @@ Una Arithmetic Logic Unit (ALU) es un componente clave dentro de un procesador, 
 aritméticas y lógicas en datos binarios. Cuando se ve desde la perspectiva de un circuito, la ALU está 
 compuesta por una serie de unidades funcionales interconectadas que realizan diferentes operaciones, y 
 también incluye lógica adicional para generar banderas que indican ciertas condiciones o estados de las operaciones realizadas.
-Estas banderas típicamente incluyen:
+Estas banderas típicamente incluyen: v
 
 
 Carry (acarreo): Indica si ha ocurrido un acarreo (carry) al bit más significativo durante una operación aritmética.
